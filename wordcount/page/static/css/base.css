@@ -9,6 +9,7 @@ label{
 
 #navbar{
     display: flex;
+    justify-content : space-between;
 }
 
 footer{
