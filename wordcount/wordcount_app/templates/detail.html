@@ -14,6 +14,8 @@
             <p class='lead'>{{designer.description}}</p>
             <div class='d-fles justify-content-betwwn align-items-center'>
                 <div class='btn-group'>
+                    <a href="{%url 'update' designer.id %}" class='btn btn-s btn-outline-secondary'>정보 수정</a>
+                    <a href="{%url 'delete' designer.id %}" class='btn btn-s btn-outline-danger'>정보 삭제</a>
                 </div>
             </div>
         </div>
