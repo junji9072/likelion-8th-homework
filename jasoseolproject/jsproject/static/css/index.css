@@ -1,0 +1,34 @@
+body{ 
+    margin : 0; /*마진과 패딩 초기화 그 이유는 조금이라도 남아있을수 있으므로*/
+    padding : 50px;
+}
+
+a{
+    text-decoration: none; /*하이퍼링크 밑줄 없애기*/
+}
+
+.make_jss, .all_jss{
+    width : 200px;
+    height : 300px;
+    border: 1px solid black;
+    display: flex; /*자식 요소 컨트롤 가능*/
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.all_jss{
+    display: inline-flex; /*같은줄에 데이터가 쌓이도록*/
+}
+
+.plus_btn{
+    flex:1;
+    display: flex;
+    align-items : center;
+    font-size: 3rem; /*rem이란? 기본 정의된 폰트에 배*/
+}
+p{
+    flex:1;
+    display: flex;
+    align-items : center;
+}

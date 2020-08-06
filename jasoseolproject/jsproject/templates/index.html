@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang = 'en'>
+<head>
+    <meta chareset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>자소설 닷컴</title>
+    <link rel = 'stylesheet' type='text/css' href='{% static "css/index.css" %}'>
+</head>
+<body>
+    <div class ='make_jss'>
+    <a href = '{% url "create"%}'>
+        <div class='plus_btn'>
+            +
+        </div>
+        <p>자기소개서 작성</p>
+    </div>
+    
+    {% for jss in all_jss %}
+    <a href ='{%url "detail" jss.id %}'>
+    <div class='all_jss'>
+        <p>{{jss.id}}</p>
+        <p>{{jss.title}}</p>
+
+        <p>{{jss.content}}</p>
+
+        <p>{{jss.updated_at|date:'Y-m-d'}}</p> <!--템플릿 필터 년/월/일-->
+    </div>
+    {% endfor %}
+</body>
+</html>
