@@ -3,7 +3,6 @@ from .forms import JssForm
 from .models import Jasosel
 from django.http import Http404
 
-# Create your views here.
 def index(request):
     all_jss = Jasosel.objects.all()
     return render(request,'index.html',{'all_jss':all_jss})
