@@ -1,0 +1,7 @@
+<h1>회원가입 페이지</h1>
+
+<form method="POST" action=""> <!--유저 관련 정보니까 보안을 써야하고 공백으로 둬서 랜더링 가능하게 한다.-->
+{% csrf_token %}
+{{regi_form.as_p}}
+<input type="submit" value="회원가입">
+</form>

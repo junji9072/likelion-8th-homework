@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jsproject', #단순하게 app이름 으로만 연동
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -109,3 +110,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+LOGIN_REDIRECT_URL = '/' # 로그인 성공시 홈화면으로 전송
+
+LOGOUT_REDIRECT_URL = '/' 

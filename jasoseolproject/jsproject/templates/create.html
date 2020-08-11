@@ -1,5 +1,5 @@
 <form method = 'POST' action=''> <!--method 기본 설정은 get 이지만 보안을 위해 POST 사용-->
-{% csrf_token %} <!-- post 방식은 필수적으로 토큰 사용 -->
-{{jss_form.as_p}}
-<input type = 'submit' value='확인'>
+    {% csrf_token %} <!-- post 방식은 필수적으로 토큰 사용 -->
+    {{jss_form.as_p}}
+    <input type = 'submit' value='확인'>
 </form>
