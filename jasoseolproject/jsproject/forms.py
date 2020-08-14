@@ -1,5 +1,5 @@
 from django import forms # 모델폼을 쓰기 위해서 장고에서 불러온다.
-from .models import Jasosel
+from .models import Jasosel, Comment
 
 class JssForm(forms.ModelForm):
     class Meta:
@@ -14,3 +14,16 @@ class JssForm(forms.ModelForm):
             'class' : 'jss_title',
             'placeholder' : '제목',
         })
+        self.fields['content'].widget.attrs.update({
+            'class': 'jss_content_form', #쿼리셀렉터로 특정 요소를 선택 선택시 클래스를 사용한다.
+        })
+
+class CommentForm(forms.ModelForm): #forms에 modelform상속 받는다.
+
+    class Meta:
+        model = Comment # 연결시켜줄 모델
+        fields = ('content', )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['content'].label = "댓글"

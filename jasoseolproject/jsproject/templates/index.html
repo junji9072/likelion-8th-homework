@@ -35,14 +35,15 @@
         </div>
         <p>자기소개서 작성</p>
     </div>
+    {% if user.is_authenticated %} <!-- 유저가 로그인 시만 보여지도록 한다.-->
         <a href="{% url 'my_index' %}">
             <button>내 자기소개서만 보기</button>
         </a>
         <a href="{% url 'index' %}">
             <button>모든 자기소개서 보기</button>
         </a>
+    {% endif %}
     <br>
-
     {% for jss in all_jss %}
     <a href ='{%url "detail" jss.id %}'>
     <div class='all_jss'>

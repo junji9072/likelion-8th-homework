@@ -19,3 +19,27 @@
 <a href='{% url "delete" my_jss.id %}'><button>삭제</button></a>
 {% endif %}
 <!-- 이렇게만 한다고 되느냐! 아님...url통해서 접근 가능 views에서 또 추가해주자. -->
+{% if user.is_authenticated %}<!-- 인증된 유저만 댓글 작성 -->
+<form method="POST" action="{% url 'create_comment' my_jss.id %}"> <!-- 댓글이 중요한 정보를 담고 있진 않지만 길어지면 get 방식에서는 다 전달 안될수도 있다. -->
+{% csrf_token %}            <!-- action에 넣어주면 submit에서 전송시 views에 create_comment함수 실행  -->
+{{commet_form}}
+<input type="submit" value="확인">
+</form>
+{% endif %}
+
+{% for comment in my_jss.comment_set.all %} 
+<!-- detail이란 함수에 my_jss에 자소설이란 오브젝트에 
+특정 pk를 가진 오브젝트가 my_jss란 이름으로 뿌려졌다.
+즉 my_jss를 참조하고 있는 FK로 쓰는애들을 불러올 수 있다.
+comment_set.all 통해서 모두 가져온다.
+-->
+<p>
+    {{comment.author}} 🔊 {{comment.content}}
+    {% if user == comment.author %} <!-- 작성자와 댓글 동일하면 삭제 버튼이 보이도록 한다. -->
+        <a href="{% url 'delete_comment' my_jss.id comment.id %}">
+            
+            <button>삭제</button>
+        </a>
+    {% endif %}
+</p>
+{% endfor %}
