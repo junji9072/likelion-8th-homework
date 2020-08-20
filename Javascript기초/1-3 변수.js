@@ -9,7 +9,7 @@ let person = {
     phoneNumber: '010-0000-0000',
     email: 'hong@hong.com'
 };
-// 변수의 타입 확인
+// 변수의 타입 확인!
 typeof (booleanVal);
 typeof (numberVal);
 typeof (nullVal); //object null*2 = 0
