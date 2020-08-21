@@ -1,0 +1,8 @@
+<h2>새로운 학생 정보를 저장하는 페이지 입니다.</h2>
+<a href = '{% url "home" %}'>홈으로</a>
+
+<form method = 'POST' action='' enctype="multipart/form-data">
+    {% csrf_token %}
+    {{sch_form.as_p}}
+    <input type = 'submit' value='확인'>
+</form>
